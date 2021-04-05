@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Changing</title>
+    <link rel="shortcut icon" type="jpg" href="vto.jpg">
+<style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: yellow;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+}
+</style>
+</head>
+<body>
+
+<p><button onclick="myMove()">Click Me</button></p> 
+<p><button onclick="myReverse()">Reverse Me</button></p> 
+
+<div id ="container">
+  <div id ="animate"></div>
+</div>
+
+<script>
+var id = null;
+let arrColor=["green","pink","purple","blue","white","black","brown"];
+function myMove() {
+  var elem = document.getElementById("animate");   
+  var pos = 0;
+  clearInterval(id);
+    function changeColor(){
+        for(let i=0;i<arrColor.length;i++){
+            if(pos==50){
+                return arrColor[0];
+            }if(pos==100){
+                return arrColor[1];
+            }if(pos==150){
+                return arrColor[2];
+            }if(pos==200){
+                return arrColor[3];
+            }if(pos==250){
+                return arrColor[4];
+            }if(pos==300){
+                return arrColor[5];
+            }if(pos==350){
+                return arrColor[6];
+            }
+        }
+    }
+  id = setInterval(frame, 10);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.top = pos + "px"; 
+      elem.style.left = pos + "px"; 
+      elem.style.backgroundColor = changeColor();
+    }
+  }
+}
+
+function myReverse() {
+  var elem = document.getElementById("animate");   
+  var pos = 350;
+  clearInterval(id);
+    function changeColor2(){
+        for(let i=0;i<arrColor.length;i++){
+            if(pos==50){
+                return arrColor[0];
+            }if(pos==100){
+                return arrColor[1];
+            }if(pos==150){
+                return arrColor[2];
+            }if(pos==200){
+                return arrColor[3];
+            }if(pos==250){
+                return arrColor[4];
+            }if(pos==300){
+                return arrColor[5];
+            }if(pos==350){
+                return arrColor[6];
+            }
+        }
+    }
+  id = setInterval(frame, 10);
+  function frame() {
+    if (pos == 0) {
+      clearInterval(id);
+    } else {
+      pos--; 
+      elem.style.top = pos + "px"; 
+      elem.style.left = pos + "px"; 
+      elem.style.backgroundColor = changeColor2();
+    }
+  }
+}
+
+
+</script>
+
+</body>
+</html>
